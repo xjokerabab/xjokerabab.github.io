@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IP for AI（ipforai.cc）：检测 AI 服务出口 IP、代理风险与连通性</title>
-<meta name="description" content="介绍 IP for AI（ipforai.cc）：查看 IPv4/IPv6 出口、ASN、地区与代理/VPN/Tor 信号，检测 ChatGPT、Claude、Gemini 等 AI 服务的连通性，并解释机房 IP、住宅 IP、原生 IP、广播 IP 的区别。">
+<title>IP for AI（ipforai.cc）：AI IP 检测、网络环境分与服务连通</title>
+<meta name="description" content="介绍 IP for AI（ipforai.cc）：AI IP 检测、可解释的网络环境分（0–100）、ChatGPT / Claude / Gemini 等服务连通与分流出口；并说明「IP 纯净度」是社区说法，分数不是平台官方评分、不能预测封号。">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header>
   <nav><a href="/">首页</a><a href="/yiminshuju/">移民数据</a><a href="/ipforai/">IP for AI</a></nav>
-  <h1>IP for AI：访问 AI 服务前，先看清自己的网络出口</h1>
-  <p class="lead"><a href="https://ipforai.cc/">IP for AI（ipforai.cc）</a>是一个 AI 网络环境检测工具：打开页面即可看到当前出口 IP 的网络画像，以及 ChatGPT、Claude、Gemini 等服务的连通情况。</p>
+  <h1>IP for AI：AI IP 检测、网络环境分与服务连通</h1>
+  <p class="lead"><a href="https://ipforai.cc/">IP for AI（ipforai.cc）</a>帮你看清访问 AI 服务时的网络出口：当前 IPv4 / IPv6 画像、可解释的<strong>网络环境分（0–100）</strong>，以及 ChatGPT、Claude、Gemini 等服务的连通性与分流出口。</p>
 </header>
 <main>
   <h2>检测什么</h2>
@@ -21,24 +21,27 @@
     <li>匹配 ASN（出口属于哪家运营商或机房）；</li>
     <li>检查代理 / VPN / Tor 信号；</li>
     <li>检查风险名单；</li>
-    <li>汇总 AI 环境：检测 AI 服务公开资源的连通性，并识别不同 AI 应用与厂商网络实际使用的公网出口（AI 分流出口）。</li>
+    <li>汇总 AI 环境：给出可解释的网络环境分，检测公开资源连通性，并识别不同 AI 应用与厂商网络实际使用的公网出口（AI 分流出口）。</li>
   </ol>
-  <p>服务器上也可以用命令行做只读检测，用法见 <a href="https://ipforai.cc/">ipforai.cc</a> 的 CLI 说明。</p>
+  <p>先看网络环境分，再核对 IPv4、IPv6 出口、ASN、地区与代理风险；单个标签或分数不足以判断原因。服务器上也可以用命令行做只读检测，见 <a href="https://ipforai.cc/cli">CLI 说明</a> 与 <a href="https://ipforai.cc/guides">使用指南</a>；英文页：<a href="https://ipforai.cc/en">/en</a>。</p>
 
   <h2>几个常见概念</h2>
+  <h3>「IP 纯净度」是什么？</h3>
+  <p>「IP 纯净度」是社区对出口类型、代理标记与风险记录的统称，没有统一标准。本站提供的是可解释的<strong>网络环境分（0–100）</strong>：结合可获取的出口与环境信号汇总；它<strong>不是</strong>各 AI 平台的官方评分，也<strong>不能</strong>预测封号。</p>
   <h3>机房 IP 与住宅 IP</h3>
-  <p>住宅 IP 由家庭宽带运营商分配给个人用户；机房 IP 属于数据中心，同一段地址可能被很多人共用，更容易被识别为代理或自动化流量。区别不在速度，而在风控系统怎么看这个出口。</p>
+  <p>住宅与机房描述网络用途和归属线索。本站结合 ASN、网络角色与多源证据进行推断，不能证明地址独享或实际使用者身份，也不能据此确定服务商如何处理请求。</p>
   <h3>原生 IP 与广播 IP</h3>
-  <p>原生 IP 的注册地与实际使用地一致；广播 IP 是把其他地区的地址段广播到本地使用。AI 服务通常按注册地判断地区，所以广播 IP 容易出现「显示地区与实际所在地不符」。</p>
+  <p>「原生 / 广播」是社区对注册信息与使用地区关系的称呼，并非统一标准。注册地与多源地理定位不同可作为核查线索，但不能确定服务商采用哪一份地区数据或是否允许账号使用。</p>
   <h3>为什么要分别看 IPv4 和 IPv6</h3>
-  <p>双栈网络里，IPv4 和 IPv6 可能走不同出口、不同 ASN、不同地区。只看一个，可能漏掉实际访问 AI 服务时用的另一条路径。</p>
+  <p>双栈网络里，IPv4 和 IPv6 可能走不同出口、不同 ASN、不同地区或代理路径。只看一个，可能漏掉实际访问 AI 服务时用的另一条路径。</p>
 
   <h2>结果的边界</h2>
-  <p>IP for AI 不给单一「纯净度」分数，而是把各维度分别列出，因为不同 AI 服务对它们的权重不同。风险标签只描述网络的可观测属性，<strong>不等于账号会被限制</strong>；公开资源连通也不代表账号、订阅或完整功能可用。</p>
+  <p>网络标签与环境分只描述当前网络的可观测属性，<strong>不等于账号状态</strong>；公开资源连通也不代表账号、订阅或完整功能可用。账号结果还可能受登录、行为、订阅、组织策略、地区资格和服务端规则影响，不能从单个网络标签推出封号或限制结论。</p>
+  <p>分流出口结果反映本次连接访问应用或厂商网络时使用的公网出口，不代表账号、订阅或产品功能状态。</p>
   <p>立即检测：<a href="https://ipforai.cc/">ipforai.cc</a></p>
 
   <h2>English summary</h2>
-  <p class="en"><a href="https://ipforai.cc/">ipforai.cc</a> (IP for AI) is a network check for AI users. It shows your IPv4 and IPv6 egress IP, geolocation, ASN, proxy/VPN/Tor signals and blocklist status, tests connectivity to public endpoints of AI services such as ChatGPT, Claude and Gemini, and identifies which egress each AI provider actually sees. It reports each signal separately instead of a single "clean IP" score, and is explicit that network labels do not determine account status.</p>
+  <p class="en"><a href="https://ipforai.cc/">ipforai.cc</a> (IP for AI) is an AI network check: IPv4/IPv6 egress profile, an explainable <strong>0–100 network environment score</strong>, connectivity to public endpoints of services such as ChatGPT, Claude and Gemini, and the public exits those apps or vendor networks actually use. “IP purity” is an informal community term, not a universal standard. The score is not an official platform rating and cannot predict bans; network labels do not determine account status. CLI: <a href="https://ipforai.cc/cli">/cli</a> · guides: <a href="https://ipforai.cc/guides">/guides</a> · English UI: <a href="https://ipforai.cc/en">/en</a>.</p>
 </main>
 <footer>© xjokerabab · <a href="/">返回首页</a></footer>
 </body>
